@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Thomas Camargo</title>
-<meta name="description" content="Thomas Camargo, junior web developer and digital marketer in Colombia, open to remote work.">
+<meta name="description" content="Thomas Camargo, Meta Ads and lead generation specialist who builds landing pages. Colombia, works in US hours.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one narrow column, a results panel styled like an ads dashboard, quiet sections below */
+/* Layout: lead-gen specialist portfolio. Hero with proof panel, services grid, case studies, contact band */
 :root {
   --bg: #f4f6f3;
   --surface: #ffffff;
@@ -43,68 +43,81 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-.wrap { max-width: 46rem; margin: 0 auto; padding-block: 3.5rem 4rem; display: grid; gap: 3.5rem; }
+.wrap { max-width: 52rem; margin: 0 auto; padding-block: 3rem 4rem; display: grid; gap: 4rem; }
 h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
 p { margin: 0; }
 .label { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
 /* Hero */
-.hero { display: grid; gap: 1.1rem; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem 2rem; align-items: start; }
+.hero-text { display: grid; gap: 1.1rem; min-width: 0; }
+.avatar { width: 9rem; aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+  display: grid; place-items: center; font: 800 2.6rem/1 var(--display); border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); overflow: hidden; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
 .status { display: inline-flex; align-items: center; gap: 0.55rem; width: fit-content;
   font: 500 0.8rem/1 var(--mono); color: var(--accent); background: var(--accent-soft);
   padding: 0.5rem 0.75rem; border-radius: 999px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 @media (prefers-reduced-motion: no-preference) { .dot { animation: pulse 2s ease-in-out infinite; } }
 @keyframes pulse { 50% { opacity: 0.35; } }
-h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; }
-.role { font: 600 1.15rem/1.3 var(--display); color: var(--accent); }
-.pitch { font-size: 1.1rem; max-width: 36rem; color: var(--fg); }
-.facts { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; font: 400 0.85rem/1.4 var(--mono); color: var(--muted); }
+h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+h1 em { font-style: normal; color: var(--accent); }
+.pitch { font-size: 1.12rem; max-width: 38rem; }
+.byline { font: 600 1rem/1.4 var(--display); }
+.byline span { color: var(--muted); font-weight: 500; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.btn { display: inline-flex; align-items: center; font: 600 0.95rem/1 var(--body); padding: 0.8rem 1.1rem; border-radius: 8px; text-decoration: none; }
+.btn.primary { background: var(--accent); color: var(--bg); }
+.btn.ghost { border: 1px solid var(--line); color: var(--fg); background: var(--surface); }
+@media (max-width: 600px) { .hero { grid-template-columns: 1fr; } .avatar { order: -1; width: 6.5rem; font-size: 1.9rem; } }
 
 /* Results panel */
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.panel-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-  padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--line); }
+.panel-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--line); }
 .panel-head span:last-child { color: var(--accent); }
 .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .metric { padding: 1.2rem; display: grid; gap: 0.4rem; align-content: start; }
 .metric + .metric { border-left: 1px solid var(--line); }
-.num { font: 700 2.4rem/1 var(--display); font-variant-numeric: tabular-nums; }
+.num { font: 700 2.6rem/1 var(--display); font-variant-numeric: tabular-nums; }
 .metric:first-child .num { color: var(--signal); }
 .metric p { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
-.panel-foot { padding: 0.9rem 1.2rem; border-top: 1px solid var(--line); font-size: 0.92rem; }
-@media (max-width: 560px) {
-  .metrics { grid-template-columns: 1fr; }
-  .metric + .metric { border-left: 0; border-top: 1px solid var(--line); }
-}
+@media (max-width: 560px) { .metrics { grid-template-columns: 1fr; } .metric + .metric { border-left: 0; border-top: 1px solid var(--line); } }
 
 /* Sections */
-section { display: grid; gap: 1.2rem; }
-h2 { font-size: 1.6rem; font-weight: 700; }
-.job { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
-.job .when { font: 400 0.82rem/1.5 var(--mono); color: var(--muted); }
-.job h3 { font-size: 1.1rem; font-weight: 700; }
-.job .where { color: var(--muted); font-size: 0.92rem; margin-bottom: 0.5rem; }
-.job ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; }
-@media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 0.3rem; } }
+section { display: grid; gap: 1.4rem; }
+.section-head { display: grid; gap: 0.5rem; }
+h2 { font-size: 1.75rem; font-weight: 700; }
+.lead { color: var(--muted); max-width: 38rem; }
 
-.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
-.skills div { display: grid; gap: 0.5rem; }
-.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.service { background: var(--surface); padding: 1.3rem; display: grid; gap: 0.45rem; align-content: start; }
+.service h3 { font-size: 1.1rem; }
+.service p { color: var(--muted); font-size: 0.94rem; }
+.service .label { color: var(--accent); }
+@media (max-width: 600px) { .services { grid-template-columns: 1fr; } }
+
+.case { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.case-meta { display: grid; gap: 0.35rem; align-content: start; }
+.case-meta h3 { font-size: 1.15rem; }
+.case-meta p { font: 400 0.82rem/1.5 var(--mono); color: var(--muted); }
+.case dl { margin: 0; display: grid; gap: 0.8rem; }
+.case dt { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+.case dd { margin: 0; }
+.result { color: var(--signal); font-weight: 600; }
+@media (max-width: 600px) { .case { grid-template-columns: 1fr; gap: 0.8rem; } }
+
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.how div { display: grid; gap: 0.35rem; align-content: start; }
+.how strong { font: 600 1rem/1.3 var(--display); }
+.how p { color: var(--muted); font-size: 0.92rem; }
+@media (max-width: 600px) { .how { grid-template-columns: 1fr; } }
+
+.tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .chip { font-size: 0.88rem; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
-.chip.learning { border-style: dashed; color: var(--muted); }
-@media (max-width: 560px) { .skills { grid-template-columns: 1fr; } }
 
-.projects { display: grid; gap: 0.8rem; }
-.project { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap;
-  padding: 1rem 0; border-top: 1px solid var(--line); }
-.project h3 { font-size: 1.05rem; }
-.project p { color: var(--muted); font-size: 0.92rem; }
-.project > div { min-width: 0; flex: 1 1 20rem; }
-.tag { font: 500 0.72rem/1 var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--signal); }
-
-.contact { background: var(--fg); color: var(--bg); border-radius: 14px; padding: 1.6rem 1.4rem; display: grid; gap: 1rem; }
+.contact { background: var(--fg); color: var(--bg); border-radius: 14px; padding: 1.8rem 1.5rem; display: grid; gap: 1.1rem; }
 .contact h2 { color: var(--bg); }
+.contact p { color: color-mix(in srgb, var(--bg) 75%, transparent); max-width: 34rem; }
 .contact .label { color: color-mix(in srgb, var(--bg) 65%, transparent); }
 .rows { display: grid; gap: 0.8rem; }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; }
@@ -121,98 +134,88 @@ footer { font-size: 0.82rem; color: var(--muted); }
 
 <main class="wrap">
   <header class="hero">
-    <span class="status"><span class="dot"></span>Open to remote work · <span id="clock">GMT-5</span> in Colombia</span>
-    <h1>Thomas Camargo</h1>
-    <p class="role">Junior Web Developer · Digital Marketing</p>
-    <p class="pitch">I build websites and run Meta Ads campaigns that bring in real customers. I mix code and marketing, and I use AI tools like Claude to learn fast and ship quickly.</p>
-    <div class="facts">
-      <span>Santander, Colombia</span>
-      <span>Works in US business hours</span>
-      <span>Spanish native · English intermediate</span>
+    <div class="hero-text">
+      <span class="status"><span class="dot"></span>Available for remote work · <span id="clock">GMT-5</span> in Colombia</span>
+      <h1>I turn Facebook and Instagram ads into <em>real customers</em>.</h1>
+      <p class="pitch">I plan Meta Ads campaigns, design the ads, and build the landing page that turns clicks into leads. Small businesses get a full system from one person.</p>
+      <p class="byline">Thomas Camargo <span>· Meta Ads &amp; Lead Generation Specialist</span></p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Work with me</a>
+        <a class="btn ghost" href="#work">See results</a>
+      </div>
     </div>
+    <div class="avatar" aria-label="Thomas Camargo">TC</div>
   </header>
 
-  <div class="panel" aria-label="Campaign results at Salomón">
-    <div class="panel-head label"><span>Meta Ads · Salomón</span><span>Active campaign</span></div>
+  <div class="panel" aria-label="Campaign results">
+    <div class="panel-head label"><span>Meta Ads · Spiritual wellness business</span><span>Live campaign</span></div>
     <div class="metrics">
-      <div class="metric"><span class="label">Leads</span><span class="num">~25</span><p>new client leads sent to the owner</p></div>
-      <div class="metric"><span class="label">Period</span><span class="num">14</span><p>days since I started the account</p></div>
-      <div class="metric"><span class="label">Channels</span><span class="num">2</span><p>Facebook and Instagram ads</p></div>
+      <div class="metric"><span class="label">Leads</span><span class="num">25</span><p>new client leads sent to the owner</p></div>
+      <div class="metric"><span class="label">Time</span><span class="num">14</span><p>days from launch</p></div>
+      <div class="metric"><span class="label">Channels</span><span class="num">2</span><p>Facebook and Instagram</p></div>
     </div>
-    <p class="panel-foot">I design the posts in Canva, set up and run the ads, review the statistics and plan new strategies each week.</p>
   </div>
 
-  <section aria-labelledby="exp">
-    <h2 id="exp">Experience</h2>
-    <article class="job">
-      <span class="when">Oct 2026 – Present</span>
-      <div>
-        <h3>Digital Marketing Specialist (Freelance)</h3>
-        <p class="where">Salomón, esoteric services company · Colombia</p>
-        <ul>
-          <li>Generated about 25 new client leads in the first 2 weeks</li>
-          <li>Created and managed Meta Ads campaigns on Facebook and Instagram</li>
-          <li>Designed social media posts and ad creatives in Canva</li>
-          <li>Analyzed campaign statistics and proposed new strategies</li>
-        </ul>
-      </div>
-    </article>
-    <article class="job">
-      <span class="when">2026 · 1 month</span>
-      <div>
-        <h3>Digital Marketing Assistant (Freelance)</h3>
-        <p class="where">Maestro Jhonatan, stone carving workshop · Santander, Colombia</p>
-        <ul>
-          <li>Promoted a handcrafted stone carving business with Meta Ads and Canva posts</li>
-          <li>Sent client inquiries to the owner and tracked results to adjust the strategy</li>
-        </ul>
-      </div>
-    </article>
-  </section>
-
-  <section aria-labelledby="skills">
-    <h2 id="skills">Skills</h2>
-    <div class="skills">
-      <div><span class="label">Web</span><div class="chips"><span class="chip">HTML</span><span class="chip">Programming fundamentals</span><span class="chip learning">CSS · learning</span><span class="chip learning">JavaScript · learning</span></div></div>
-      <div><span class="label">Marketing</span><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Google Analytics</span><span class="chip">Social media content</span></div></div>
-      <div><span class="label">Design</span><div class="chips"><span class="chip">Canva</span></div></div>
-      <div><span class="label">AI tools</span><div class="chips"><span class="chip">Claude</span></div></div>
+  <section aria-labelledby="services">
+    <div class="section-head">
+      <span class="label">What I do</span>
+      <h2 id="services">One person for the whole funnel</h2>
+    </div>
+    <div class="services">
+      <div class="service"><span class="label">Ads</span><h3>Meta Ads campaigns</h3><p>Audience, budget and campaign setup on Facebook and Instagram, focused on messages and leads.</p></div>
+      <div class="service"><span class="label">Creative</span><h3>Ad design</h3><p>Posts, stories and ad creatives in Canva that stop the scroll and match the brand.</p></div>
+      <div class="service"><span class="label">Web</span><h3>Landing pages</h3><p>Simple, fast pages in HTML that give every ad a clear place to land.</p></div>
+      <div class="service"><span class="label">Data</span><h3>Tracking and reports</h3><p>Results in Google Analytics and Ads Manager, with clear next steps every week.</p></div>
     </div>
   </section>
 
-  <section aria-labelledby="proj">
-    <h2 id="proj">Projects</h2>
-    <div class="projects">
-      <div class="project"><div><h3>This website</h3><p>Personal portfolio built with HTML and CSS.</p></div><span class="tag">Live</span></div>
-      <div class="project"><div><h3>Landing page for a stone carving workshop</h3><p>A sales page with Meta Pixel and Google Analytics tracking, connecting the website to the ads.</p></div><span class="tag">In progress</span></div>
+  <section id="work" aria-labelledby="cases">
+    <div class="section-head">
+      <span class="label">Case studies</span>
+      <h2 id="cases">Recent work</h2>
+    </div>
+    <article class="case">
+      <div class="case-meta"><h3>Salomón</h3><p>Spiritual wellness business<br>Colombia · Oct 2026 – now</p></div>
+      <dl>
+        <div><dt>Goal</dt><dd>Bring new clients through social media.</dd></div>
+        <div><dt>What I did</dt><dd>Designed the ads in Canva, launched Meta Ads campaigns, sent every new lead to the owner, and reviewed the numbers to plan the next strategy.</dd></div>
+        <div><dt>Result</dt><dd class="result">About 25 new client leads in the first 14 days.</dd></div>
+      </dl>
+    </article>
+    <article class="case">
+      <div class="case-meta"><h3>Maestro Jhonatan</h3><p>Handcrafted stone carving workshop<br>Santander, Colombia · 2026</p></div>
+      <dl>
+        <div><dt>Goal</dt><dd>Show handmade stone work to new buyers.</dd></div>
+        <div><dt>What I did</dt><dd>Created social media posts in Canva, ran Meta Ads, handled incoming inquiries and tracked results to adjust the campaign.</dd></div>
+      </dl>
+    </article>
+  </section>
+
+  <section aria-labelledby="how">
+    <div class="section-head">
+      <span class="label">How I work</span>
+      <h2 id="how">Easy to work with from the US</h2>
+    </div>
+    <div class="how">
+      <div><strong>Your time zone</strong><p>Colombia is GMT-5, so I work during US business hours.</p></div>
+      <div><strong>Fast learner</strong><p>I use AI tools like Claude to research, write and build faster. Studying software development now.</p></div>
+      <div><strong>Clear updates</strong><p>Written updates in English, plus Spanish for Latin American customers.</p></div>
+    </div>
+    <div class="tools" aria-label="Tools">
+      <span class="chip">Meta Ads Manager</span><span class="chip">Canva</span><span class="chip">Google Analytics</span><span class="chip">HTML</span><span class="chip">Claude</span><span class="chip">WhatsApp Business</span>
     </div>
   </section>
 
-  <section aria-labelledby="edu">
-    <h2 id="edu">Education</h2>
-    <article class="job">
-      <span class="when">Starting Oct 2026</span>
-      <div><h3>Software Technician program</h3><p class="where">Colombia</p></div>
-    </article>
-    <article class="job">
-      <span class="when">2026</span>
-      <div><h3>Digital marketing training</h3><p class="where">Salomón</p></div>
-    </article>
-    <article class="job">
-      <span class="when">2026</span>
-      <div><h3>High school diploma</h3><p class="where">Colombia</p></div>
-    </article>
-  </section>
-
-  <section class="contact" aria-labelledby="contact">
-    <h2 id="contact">Let's work together</h2>
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Need more customers?</h2>
+    <p>Tell me about your business and I will send you a simple plan for your first campaign.</p>
     <div class="rows">
       <div class="row"><span class="label">Email</span><strong id="email">camargothomas44@gmail.com</strong><button type="button" id="copy-email" data-copy="email">Copy</button></div>
       <div class="row"><span class="label">WhatsApp</span><strong id="phone">+57 300 177 0321</strong><button type="button" id="copy-phone" data-copy="phone">Copy</button></div>
     </div>
   </section>
 
-  <footer>Thomas Camargo · Santander, Colombia</footer>
+  <footer>Thomas Camargo · Santander, Colombia · Spanish native, English intermediate</footer>
 </main>
 
 <script>
