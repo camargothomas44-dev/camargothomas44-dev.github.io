@@ -3,199 +3,283 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Thomas Camargo</title>
-<meta name="description" content="Thomas Camargo, Meta Ads and lead generation specialist who builds landing pages. Colombia, works in US hours.">
+<title>Thomas Camargo · Meta Ads & Lead Generation</title>
+<meta name="description" content="Thomas Camargo, Meta Ads and lead generation specialist who builds landing pages. Colombia, works in US business hours.">
+<meta property="og:title" content="Thomas Camargo · Meta Ads & Lead Generation">
+<meta property="og:description" content="I turn Facebook and Instagram ads into real customers.">
+<meta property="og:image" content="https://camargothomas44-dev.github.io/photo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: lead-gen specialist portfolio. Hero with proof panel, services grid, case studies, contact band */
+/* Layout: dark premium portfolio. Split hero with portrait, metric band, service cards, case files, contact cards */
 :root {
-  --bg: #f4f6f3;
-  --surface: #ffffff;
-  --fg: #13201d;
-  --muted: #56655f;
-  --line: #d9e0dc;
-  --accent: #0d7a69;
-  --accent-soft: #dcefe9;
-  --signal: #b8711a;
-  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1614; --surface: #17211e; --fg: #e6eeea; --muted: #9aaba4;
-    --line: #2a3733; --accent: #4cc4ad; --accent-soft: #173a33; --signal: #e6a650;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0f1614; --surface: #17211e; --fg: #e6eeea; --muted: #9aaba4;
-  --line: #2a3733; --accent: #4cc4ad; --accent-soft: #173a33; --signal: #e6a650;
+  --bg: #0a0e14;
+  --bg-2: #0f151e;
+  --card: #131b26;
+  --card-2: #182231;
+  --line: #233044;
+  --fg: #eef2f7;
+  --muted: #93a1b5;
+  --accent: #4d8dff;
+  --accent-2: #7cc4ff;
+  --gold: #f2b84b;
+  --wa: #25d366;
+  --display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  background: var(--bg); color: var(--fg);
-  font: 400 1rem/1.6 var(--body);
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 400 1rem/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
-.wrap { max-width: 52rem; margin: 0 auto; padding-block: 3rem 4rem; display: grid; gap: 4rem; }
-h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.gutter { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 72rem; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
 p { margin: 0; }
-.label { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.eyebrow { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+
+/* Background glow */
+.glow { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.glow::before { content: ""; position: absolute; width: 60rem; height: 60rem; right: -20rem; top: -28rem;
+  background: radial-gradient(closest-side, rgba(77,141,255,0.22), transparent 70%); }
+.glow::after { content: ""; position: absolute; width: 40rem; height: 40rem; left: -18rem; top: 18rem;
+  background: radial-gradient(closest-side, rgba(242,184,75,0.08), transparent 70%); }
+
+/* Nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.9rem; }
+.logo { display: flex; align-items: center; gap: 0.6rem; font: 700 1rem/1 var(--display); text-decoration: none; }
+.logo span { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 0.6rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06101f; font-size: 0.85rem; font-weight: 800; }
+.links { display: flex; gap: 1.6rem; font-size: 0.92rem; color: var(--muted); }
+.links a { text-decoration: none; transition: color .2s; }
+.links a:hover { color: var(--fg); }
+@media (max-width: 760px) { .links { display: none; } }
+@media (max-width: 420px) { nav .btn { display: none; } }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; font: 700 0.95rem/1 var(--body);
+  padding: 0.95rem 1.35rem; border-radius: 0.8rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn svg { width: 1.1rem; height: 1.1rem; flex: none; }
+.btn-primary { background: linear-gradient(135deg, var(--accent), #6aa3ff); color: #fff; box-shadow: 0 10px 30px -10px rgba(77,141,255,.7); }
+.btn-ghost { background: var(--card); border-color: var(--line); color: var(--fg); }
+.btn-sm { padding: 0.65rem 1rem; font-size: 0.88rem; }
 
 /* Hero */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem 2rem; align-items: start; }
-.hero-text { display: grid; gap: 1.1rem; min-width: 0; }
-.avatar { width: 9rem; aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
-  display: grid; place-items: center; font: 800 2.6rem/1 var(--display); border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--line); overflow: hidden; }
-.avatar img { width: 100%; height: 100%; object-fit: cover; }
-.status { display: inline-flex; align-items: center; gap: 0.55rem; width: fit-content;
-  font: 500 0.8rem/1 var(--mono); color: var(--accent); background: var(--accent-soft);
-  padding: 0.5rem 0.75rem; border-radius: 999px; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+header.hero { position: relative; }
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 3.5rem; align-items: center; padding-block: 5rem 4rem; }
+.hero-text { display: grid; gap: 1.5rem; min-width: 0; }
+.status { display: inline-flex; align-items: center; gap: 0.6rem; width: fit-content; font: 500 0.8rem/1 var(--mono); color: var(--fg);
+  background: var(--card); border: 1px solid var(--line); padding: 0.55rem 0.9rem; border-radius: 999px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(37,211,102,.18); }
 @media (prefers-reduced-motion: no-preference) { .dot { animation: pulse 2s ease-in-out infinite; } }
-@keyframes pulse { 50% { opacity: 0.35; } }
-h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
-h1 em { font-style: normal; color: var(--accent); }
-.pitch { font-size: 1.12rem; max-width: 38rem; }
-.byline { font: 600 1rem/1.4 var(--display); }
-.byline span { color: var(--muted); font-weight: 500; }
-.cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.btn { display: inline-flex; align-items: center; font: 600 0.95rem/1 var(--body); padding: 0.8rem 1.1rem; border-radius: 8px; text-decoration: none; }
-.btn.primary { background: var(--accent); color: var(--bg); }
-.btn.ghost { border: 1px solid var(--line); color: var(--fg); background: var(--surface); }
-@media (max-width: 600px) { .hero { grid-template-columns: 1fr; } .avatar { order: -1; width: 6.5rem; font-size: 1.9rem; } }
+@keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(37,211,102,0); } }
+h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); font-weight: 800; line-height: 1.02; }
+h1 .grad { background: linear-gradient(100deg, var(--accent-2), var(--accent) 60%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pitch { font-size: 1.15rem; color: var(--muted); max-width: 34rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.trust { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font: 400 0.82rem/1.4 var(--mono); color: var(--muted); }
+.trust b { color: var(--fg); font-weight: 500; }
 
-/* Results panel */
-.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.panel-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--line); }
-.panel-head span:last-child { color: var(--accent); }
-.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.metric { padding: 1.2rem; display: grid; gap: 0.4rem; align-content: start; }
-.metric + .metric { border-left: 1px solid var(--line); }
-.num { font: 700 2.6rem/1 var(--display); font-variant-numeric: tabular-nums; }
-.metric:first-child .num { color: var(--signal); }
-.metric p { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
-@media (max-width: 560px) { .metrics { grid-template-columns: 1fr; } .metric + .metric { border-left: 0; border-top: 1px solid var(--line); } }
+.portrait { position: relative; justify-self: center; width: min(100%, 24rem); }
+.portrait-frame { position: relative; border-radius: 1.6rem; padding: 0.5rem; background: linear-gradient(160deg, rgba(124,196,255,.55), rgba(77,141,255,.08) 45%, rgba(242,184,75,.35)); }
+.portrait-frame img { width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; object-position: center 20%; border-radius: 1.2rem; background: var(--card); }
+.badge { position: absolute; display: grid; gap: 0.15rem; background: color-mix(in srgb, var(--card-2) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line); border-radius: 1rem; padding: 0.8rem 1rem; box-shadow: 0 20px 40px -20px rgba(0,0,0,.7); }
+.badge strong { font: 800 1.5rem/1 var(--display); }
+.badge span { font-size: 0.78rem; color: var(--muted); }
+.badge.b1 { left: -1.5rem; bottom: 2.2rem; }
+.badge.b1 strong { color: var(--gold); }
+.badge.b2 { right: -1.2rem; top: 1.6rem; }
+.badge.b2 strong { color: var(--accent-2); }
+.nameplate { margin-top: 1rem; text-align: center; }
+.nameplate b { font: 700 1.05rem/1.3 var(--display); display: block; }
+.nameplate span { font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; padding-block: 3rem 3rem; gap: 2.5rem; }
+  .portrait { order: -1; width: min(100%, 18rem); }
+  .badge.b1 { left: -0.6rem; bottom: 4.4rem; } .badge.b2 { right: -0.6rem; }
+  .nameplate { margin-top: 1.2rem; }
+}
 
 /* Sections */
-section { display: grid; gap: 1.4rem; }
-.section-head { display: grid; gap: 0.5rem; }
-h2 { font-size: 1.75rem; font-weight: 700; }
-.lead { color: var(--muted); max-width: 38rem; }
+section { position: relative; padding-block: 5rem; }
+.sec-head { display: grid; gap: 0.8rem; margin-bottom: 2.5rem; max-width: 40rem; }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; line-height: 1.1; }
+.sec-head p { color: var(--muted); font-size: 1.05rem; }
+.alt { background: var(--bg-2); border-block: 1px solid var(--line); }
 
-.services { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-.service { background: var(--surface); padding: 1.3rem; display: grid; gap: 0.45rem; align-content: start; }
-.service h3 { font-size: 1.1rem; }
-.service p { color: var(--muted); font-size: 0.94rem; }
-.service .label { color: var(--accent); }
-@media (max-width: 600px) { .services { grid-template-columns: 1fr; } }
+/* Metrics */
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.metric { background: var(--card); border: 1px solid var(--line); border-radius: 1.2rem; padding: 1.5rem; display: grid; gap: 0.5rem; align-content: start; }
+.metric .num { font: 800 clamp(2.2rem, 4vw, 3rem)/1 var(--display); font-variant-numeric: tabular-nums; letter-spacing: -0.03em; }
+.metric .num small { font-size: 0.45em; font-weight: 600; color: var(--muted); margin-left: 0.2rem; letter-spacing: 0; }
+.metric:first-child .num { color: var(--gold); }
+.metric p { color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+.metric-note { margin-top: 1rem; font: 400 0.8rem/1.5 var(--mono); color: var(--muted); }
+@media (max-width: 860px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.case { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
-.case-meta { display: grid; gap: 0.35rem; align-content: start; }
-.case-meta h3 { font-size: 1.15rem; }
-.case-meta p { font: 400 0.82rem/1.5 var(--mono); color: var(--muted); }
-.case dl { margin: 0; display: grid; gap: 0.8rem; }
-.case dt { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
-.case dd { margin: 0; }
-.result { color: var(--signal); font-weight: 600; }
-@media (max-width: 600px) { .case { grid-template-columns: 1fr; gap: 0.8rem; } }
+/* Services */
+.services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.service { background: var(--card); border: 1px solid var(--line); border-radius: 1.2rem; padding: 1.6rem; display: grid; gap: 0.7rem; align-content: start; transition: border-color .25s, transform .25s; }
+.service:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); transform: translateY(-4px); }
+.icon { width: 2.8rem; height: 2.8rem; border-radius: 0.8rem; display: grid; place-items: center; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent-2); }
+.icon svg { width: 1.4rem; height: 1.4rem; }
+.service h3 { font-size: 1.12rem; font-weight: 700; }
+.service p { color: var(--muted); font-size: 0.93rem; }
+@media (max-width: 960px) { .services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .services { grid-template-columns: 1fr; } }
 
-.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-.how div { display: grid; gap: 0.35rem; align-content: start; }
-.how strong { font: 600 1rem/1.3 var(--display); }
-.how p { color: var(--muted); font-size: 0.92rem; }
-@media (max-width: 600px) { .how { grid-template-columns: 1fr; } }
+/* Cases */
+.cases { display: grid; gap: 1.2rem; }
+.case { display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 2rem; background: var(--card); border: 1px solid var(--line); border-radius: 1.4rem; padding: 2rem; }
+.case-meta { display: grid; gap: 0.6rem; align-content: start; }
+.case-meta h3 { font-size: 1.4rem; }
+.tag { width: fit-content; font: 500 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.65rem; border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent-2); }
+.case-meta p { color: var(--muted); font-size: 0.9rem; }
+.steps { display: grid; gap: 1.1rem; margin: 0; }
+.steps dt { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+.steps dd { margin: 0; }
+.result { display: inline-block; font-weight: 700; color: var(--gold); background: rgba(242,184,75,.1); border: 1px solid rgba(242,184,75,.3); padding: 0.4rem 0.75rem; border-radius: 0.6rem; }
+@media (max-width: 760px) { .case { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; } }
 
-.tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.chip { font-size: 0.88rem; padding: 0.3rem 0.65rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+/* How */
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.how > div { border-top: 2px solid var(--accent); padding-top: 1.2rem; display: grid; gap: 0.5rem; align-content: start; }
+.how strong { font: 700 1.1rem/1.3 var(--display); }
+.how p { color: var(--muted); font-size: 0.95rem; }
+.tools { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.5rem; }
+.chip { font-size: 0.9rem; padding: 0.55rem 0.95rem; border: 1px solid var(--line); border-radius: 999px; background: var(--card); }
+@media (max-width: 760px) { .how { grid-template-columns: 1fr; } }
 
-.contact { background: var(--fg); color: var(--bg); border-radius: 14px; padding: 1.8rem 1.5rem; display: grid; gap: 1.1rem; }
-.contact h2 { color: var(--bg); }
-.contact p { color: color-mix(in srgb, var(--bg) 75%, transparent); max-width: 34rem; }
-.contact .label { color: color-mix(in srgb, var(--bg) 65%, transparent); }
-.rows { display: grid; gap: 0.8rem; }
-.row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; }
-.row .label { width: 5.5rem; }
-.row strong { font: 500 1rem/1.4 var(--mono); user-select: all; overflow-wrap: anywhere; }
-button { font: 500 0.8rem/1 var(--body); padding: 0.45rem 0.75rem; border-radius: 6px; cursor: pointer;
-  background: transparent; color: var(--bg); border: 1px solid color-mix(in srgb, var(--bg) 45%, transparent); }
-button:hover { background: color-mix(in srgb, var(--bg) 12%, transparent); }
-button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-footer { font-size: 0.82rem; color: var(--muted); }
+/* Contact */
+.contact-box { position: relative; overflow: hidden; border-radius: 1.8rem; border: 1px solid var(--line);
+  background: radial-gradient(120% 140% at 100% 0%, rgba(77,141,255,.28), transparent 55%), radial-gradient(90% 120% at 0% 100%, rgba(242,184,75,.12), transparent 60%), var(--card);
+  padding: clamp(1.8rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2.5rem; align-items: center; }
+.contact-box h2 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
+.contact-box .lead { color: var(--muted); font-size: 1.08rem; margin-top: 1rem; max-width: 26rem; }
+.contact-cards { display: grid; gap: 0.9rem; }
+.ccard { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem; padding: 1.1rem 1.2rem;
+  background: color-mix(in srgb, var(--bg) 55%, transparent); border: 1px solid var(--line); border-radius: 1.1rem; }
+.ccard .icon { width: 3rem; height: 3rem; }
+.ccard.wa .icon { background: rgba(37,211,102,.14); color: var(--wa); }
+.ccard .label { font: 500 0.72rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.ccard .value { font: 600 1.02rem/1.35 var(--body); overflow-wrap: anywhere; margin-top: 0.3rem; }
+.ccard .acts { display: flex; gap: 0.5rem; }
+.btn-wa { background: var(--wa); color: #05220f; }
+.copy { background: transparent; border: 1px solid var(--line); color: var(--muted); font: 600 0.8rem/1 var(--body); padding: 0.65rem 0.8rem; border-radius: 0.6rem; cursor: pointer; }
+.copy:hover { color: var(--fg); border-color: var(--muted); }
+@media (max-width: 860px) { .contact-box { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .ccard { grid-template-columns: auto minmax(0, 1fr); } .ccard .acts { grid-column: 1 / -1; } .ccard .acts .btn { flex: 1; } }
+
+footer { padding-block: 2.5rem 3rem; color: var(--muted); font-size: 0.85rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+footer a { text-decoration: none; color: var(--muted); } footer a:hover { color: var(--fg); }
+
+:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .rise.d2 { animation-delay: .12s; } .rise.d3 { animation-delay: .24s; }
+  @keyframes rise { from { transform: translateY(14px); } to { transform: none; } }
+}
 </style>
 </head>
 <body>
 
-<main class="wrap">
-  <header class="hero">
-    <div class="hero-text">
-      <span class="status"><span class="dot"></span>Available for remote work · <span id="clock">GMT-5</span> in Colombia</span>
-      <h1>I turn Facebook and Instagram ads into <em>real customers</em>.</h1>
-      <p class="pitch">I plan Meta Ads campaigns, design the ads, and build the landing page that turns clicks into leads. Small businesses get a full system from one person.</p>
-      <p class="byline">Thomas Camargo <span>· Meta Ads &amp; Lead Generation Specialist</span></p>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Work with me</a>
-        <a class="btn ghost" href="#work">See results</a>
-      </div>
-    </div>
-    <div class="avatar"><img src="photo.jpg" alt="Thomas Camargo"></div>
-  </header>
+<nav class="gutter">
+  <div class="wrap">
+    <a class="logo" href="#top"><span>TC</span>Thomas Camargo</a>
+    <div class="links"><a href="#results">Results</a><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
+    <a class="btn btn-primary btn-sm" href="#contact">Work with me</a>
+  </div>
+</nav>
 
-  <div class="panel" aria-label="Campaign results">
-    <div class="panel-head label"><span>Meta Ads · Spiritual wellness business</span><span>Live campaign</span></div>
-    <div class="metrics">
-      <div class="metric"><span class="label">Leads</span><span class="num">25</span><p>new client leads sent to the owner</p></div>
-      <div class="metric"><span class="label">Time</span><span class="num">14</span><p>days from launch</p></div>
-      <div class="metric"><span class="label">Channels</span><span class="num">2</span><p>Facebook and Instagram</p></div>
+<header class="hero gutter" id="top">
+  <div class="glow"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="status rise"><span class="dot"></span><span>Available for remote work · <span id="clock">GMT-5</span> in Colombia</span></span>
+      <h1 class="rise d2">I turn Facebook and Instagram ads into <span class="grad">real customers.</span></h1>
+      <p class="pitch rise d3">I plan Meta Ads campaigns, design the ads, and build the landing page that turns clicks into leads. Small businesses get a full system from one person.</p>
+      <div class="cta rise d3">
+        <a class="btn btn-primary" href="#contact">Work with me
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#results">See results</a>
+      </div>
+      <div class="trust"><span><b>Meta Ads</b> · Facebook &amp; Instagram</span><span><b>Canva</b> creatives</span><span><b>HTML</b> landing pages</span></div>
+    </div>
+    <div class="portrait rise d2">
+      <div class="portrait-frame">
+        <img src="photo.jpg?v=3" alt="Portrait of Thomas Camargo" width="357" height="357">
+      </div>
+      <div class="badge b1"><strong>25 leads</strong><span>in the first 14 days</span></div>
+      <div class="badge b2"><strong>~$0.55</strong><span>cost per lead</span></div>
+      <div class="nameplate"><b>Thomas Camargo</b><span>Meta Ads &amp; Lead Generation Specialist</span></div>
     </div>
   </div>
+</header>
 
-  <section aria-labelledby="services">
-    <div class="section-head">
-      <span class="label">What I do</span>
-      <h2 id="services">One person for the whole funnel</h2>
+<section class="alt gutter" id="results" aria-labelledby="results-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Results</span><h2 id="results-h">Live campaign · Spiritual wellness business</h2></div>
+    <div class="metrics">
+      <div class="metric"><span class="eyebrow">Leads</span><span class="num">25</span><p>new client leads sent to the owner</p></div>
+      <div class="metric"><span class="eyebrow">Time</span><span class="num">14<small>days</small></span><p>from launch</p></div>
+      <div class="metric"><span class="eyebrow">Cost per lead</span><span class="num">$0.55</span><p>about COP 2,200 per lead</p></div>
+      <div class="metric"><span class="eyebrow">Channels</span><span class="num">2</span><p>Facebook and Instagram</p></div>
     </div>
+    <p class="metric-note">Ad spend: COP 55,000 (about USD 14). USD values are approximate.</p>
+  </div>
+</section>
+
+<section class="gutter" id="services" aria-labelledby="services-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">What I do</span><h2 id="services-h">One person for the whole funnel</h2><p>From the first ad to the lead in your inbox.</p></div>
     <div class="services">
-      <div class="service"><span class="label">Ads</span><h3>Meta Ads campaigns</h3><p>Audience, budget and campaign setup on Facebook and Instagram, focused on messages and leads.</p></div>
-      <div class="service"><span class="label">Creative</span><h3>Ad design</h3><p>Posts, stories and ad creatives in Canva that stop the scroll and match the brand.</p></div>
-      <div class="service"><span class="label">Web</span><h3>Landing pages</h3><p>Simple, fast pages in HTML that give every ad a clear place to land.</p></div>
-      <div class="service"><span class="label">Data</span><h3>Tracking and reports</h3><p>Results in Google Analytics and Ads Manager, with clear next steps every week.</p></div>
+      <div class="service"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></div><h3>Meta Ads campaigns</h3><p>Audience, budget and campaign setup on Facebook and Instagram, focused on messages and leads.</p></div>
+      <div class="service"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg></div><h3>Ad design</h3><p>Posts, stories and ad creatives in Canva that stop the scroll and match the brand.</p></div>
+      <div class="service"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></div><h3>Landing pages</h3><p>Simple, fast pages in HTML that give every ad a clear place to land.</p></div>
+      <div class="service"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Tracking and reports</h3><p>Results in Google Analytics and Ads Manager, with clear next steps every week.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="work" aria-labelledby="cases">
-    <div class="section-head">
-      <span class="label">Case studies</span>
-      <h2 id="cases">Recent work</h2>
+<section class="alt gutter" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Case studies</span><h2 id="work-h">Recent work</h2></div>
+    <div class="cases">
+      <article class="case">
+        <div class="case-meta"><span class="tag">Oct 2026 – now</span><h3>Salomón</h3><p>Spiritual wellness business · Colombia</p></div>
+        <dl class="steps">
+          <div><dt>Goal</dt><dd>Bring new clients through social media.</dd></div>
+          <div><dt>What I did</dt><dd>Designed the ads in Canva, launched Meta Ads campaigns, sent every new lead to the owner, and reviewed the numbers to plan the next strategy.</dd></div>
+          <div><dt>Result</dt><dd><span class="result">About 25 new client leads in the first 14 days</span></dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <div class="case-meta"><span class="tag">2026 · 1 month</span><h3>Maestro Jhonatan</h3><p>Handcrafted stone carving workshop · Santander, Colombia</p></div>
+        <dl class="steps">
+          <div><dt>Goal</dt><dd>Show handmade stone work to new buyers.</dd></div>
+          <div><dt>What I did</dt><dd>Created social media posts in Canva, ran Meta Ads, handled incoming inquiries and tracked results to adjust the campaign.</dd></div>
+        </dl>
+      </article>
     </div>
-    <article class="case">
-      <div class="case-meta"><h3>Salomón</h3><p>Spiritual wellness business<br>Colombia · Oct 2026 – now</p></div>
-      <dl>
-        <div><dt>Goal</dt><dd>Bring new clients through social media.</dd></div>
-        <div><dt>What I did</dt><dd>Designed the ads in Canva, launched Meta Ads campaigns, sent every new lead to the owner, and reviewed the numbers to plan the next strategy.</dd></div>
-        <div><dt>Result</dt><dd class="result">About 25 new client leads in the first 14 days.</dd></div>
-      </dl>
-    </article>
-    <article class="case">
-      <div class="case-meta"><h3>Maestro Jhonatan</h3><p>Handcrafted stone carving workshop<br>Santander, Colombia · 2026</p></div>
-      <dl>
-        <div><dt>Goal</dt><dd>Show handmade stone work to new buyers.</dd></div>
-        <div><dt>What I did</dt><dd>Created social media posts in Canva, ran Meta Ads, handled incoming inquiries and tracked results to adjust the campaign.</dd></div>
-      </dl>
-    </article>
-  </section>
+  </div>
+</section>
 
-  <section aria-labelledby="how">
-    <div class="section-head">
-      <span class="label">How I work</span>
-      <h2 id="how">Easy to work with from the US</h2>
-    </div>
+<section class="gutter" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">How I work</span><h2 id="how-h">Easy to work with from the US</h2></div>
     <div class="how">
       <div><strong>Your time zone</strong><p>Colombia is GMT-5, so I work during US business hours.</p></div>
       <div><strong>Fast learner</strong><p>I use AI tools like Claude to research, write and build faster. Studying software development now.</p></div>
@@ -204,39 +288,58 @@ footer { font-size: 0.82rem; color: var(--muted); }
     <div class="tools" aria-label="Tools">
       <span class="chip">Meta Ads Manager</span><span class="chip">Canva</span><span class="chip">Google Analytics</span><span class="chip">HTML</span><span class="chip">Claude</span><span class="chip">WhatsApp Business</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="contact" id="contact" aria-labelledby="contact-h">
-    <h2 id="contact-h">Need more customers?</h2>
-    <p>Tell me about your business and I will send you a simple plan for your first campaign.</p>
-    <div class="rows">
-      <div class="row"><span class="label">Email</span><strong id="email">camargothomas44@gmail.com</strong><button type="button" id="copy-email" data-copy="email">Copy</button></div>
-      <div class="row"><span class="label">WhatsApp</span><strong id="phone">+57 300 177 0321</strong><button type="button" id="copy-phone" data-copy="phone">Copy</button></div>
+<section class="gutter" id="contact" aria-labelledby="contact-h" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 id="contact-h" style="margin-top:0.8rem">Need more customers?</h2>
+        <p class="lead">Tell me about your business and I will send you a simple plan for your first campaign.</p>
+      </div>
+      <div class="contact-cards">
+        <div class="ccard wa">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg></div>
+          <div><div class="label">WhatsApp</div><div class="value" id="phone">+57 300 177 0321</div></div>
+          <div class="acts"><a class="btn btn-wa btn-sm" href="https://wa.me/573001770321?text=Hi%20Thomas%2C%20I%20saw%20your%20website" target="_blank" rel="noopener">Chat now</a></div>
+        </div>
+        <div class="ccard">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><div class="label">Email</div><div class="value" id="email">camargothomas44@gmail.com</div></div>
+          <div class="acts"><button class="copy" type="button" data-copy="email">Copy</button><a class="btn btn-primary btn-sm" href="mailto:camargothomas44@gmail.com?subject=Project%20inquiry">Email me</a></div>
+        </div>
+        <div class="ccard">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1a3.6 3.6 0 0 1 .1 2.7 3.9 3.9 0 0 1 1 2.7c0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></div>
+          <div><div class="label">GitHub</div><div class="value">github.com/camargothomas44-dev</div></div>
+          <div class="acts"><a class="btn btn-ghost btn-sm" href="https://github.com/camargothomas44-dev" target="_blank" rel="noopener">Open</a></div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>Thomas Camargo · Santander, Colombia · Spanish native, English intermediate</footer>
-</main>
+<footer class="gutter">
+  <div class="wrap">
+    <span>© 2026 Thomas Camargo · Santander, Colombia · Spanish native, English intermediate</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
 
 <script>
 (function () {
   var clock = document.getElementById('clock');
   function tick() {
-    try {
-      clock.textContent = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Bogota' }).format(new Date());
-    } catch (e) { clock.textContent = 'GMT-5'; }
+    try { clock.textContent = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Bogota' }).format(new Date()); }
+    catch (e) { clock.textContent = 'GMT-5'; }
   }
   tick(); setInterval(tick, 30000);
-
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var el = document.getElementById(btn.dataset.copy);
-      var text = el.textContent;
-      function selectIt() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; }
-      try {
-        navigator.clipboard.writeText(text).then(function () { btn.textContent = 'Copied'; }, selectIt);
-      } catch (e) { selectIt(); }
-      setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(el.textContent).then(done, function () {});
     });
   });
 })();
